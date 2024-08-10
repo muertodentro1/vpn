@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Details</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #2B2B2B;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .qr-code-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .qr-code-label {
+            background-color: #1A1A1A;
+            color: #00FF99;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .copy-button {
+            background-color: #00FF99;
+            color: #2B2B2B;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .copy-button:hover {
+            background-color: #00cc7a;
+        }
+        .description {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="qr-code-container">
+        <div class="qr-code-label">WHYNET_VPN</div>
+        <div id="qrcode"></div>
+    </div>
+    <button class="copy-button" onclick="copyToClipboard()">Скопировать данные</button>
+    <script>
+        const qrValue = "vless://3102637d-8555-4190-9e61-1cabb34561d3@whywhywhy.duckdns.org:443?type=tcp&security=reality&pbk=9tGXFmzyh42hsN5_8L3jm6tJDC4U8hTRIviHBlIfGG0&fp=firefox&sni=yahoo.com&sid=bf444718&spx=%2F&flow=xtls-rprx-vision#WHYNET_VPN-mVPN";
+
+        // Функция для копирования данных в буфер обмена
+        function copyToClipboard() {
+            navigator.clipboard.writeText(qrValue).then(() => {
+                alert("Данные скопированы!");
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
